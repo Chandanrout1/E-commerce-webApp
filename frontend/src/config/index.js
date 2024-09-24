@@ -21,7 +21,7 @@ export const signinFormControl = [
     type: "password",
   },
 ];
-export const loginFormControl = [ 
+export const loginFormControl = [
   {
     name: "email",
     label: "Email",
