@@ -4,6 +4,7 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const authRoutes = require("./routes/auth/auth-routes");
 const adminProductsRouter = require("./routes/admin/products-routers");
+const shopProductRouter = require("./routes/shop/shop-products-router");
 
 //created database connection
 
@@ -34,6 +35,7 @@ app.use(cookieParser());
 app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/admin/products", adminProductsRouter);
+app.use("/api/shop/products", shopProductRouter);
 
 // app.post("/api/login", (req, res) => {});
 
