@@ -34,7 +34,7 @@ const getFilteredProducts = async (req, res) => {
         break;
 
       default:
-        sort.price = 1
+        sort.price = 1;
         break;
     }
 
@@ -52,4 +52,27 @@ const getFilteredProducts = async (req, res) => {
   }
 };
 
-module.exports = { getFilteredProducts };
+const getProductDetails = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const product = await Products.findById(id);
+
+    if (!product)
+      return res.status(400).json({
+        success: false,
+        message: "Product not found!",
+      });
+
+    res.status(200).json({
+      success: true,
+      data: product,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Some Error occured",
+    });
+  }
+};
+
+module.exports = { getFilteredProducts, getProductDetails };
