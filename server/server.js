@@ -5,6 +5,7 @@ const cors = require("cors");
 const authRoutes = require("./routes/auth/auth-routes");
 const adminProductsRouter = require("./routes/admin/products-routers");
 const shopProductRouter = require("./routes/shop/shop-products-router");
+const shopCartRouter = require("./routes/shop/cart-routes");
 
 //created database connection
 
@@ -36,6 +37,7 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/admin/products", adminProductsRouter);
 app.use("/api/shop/products", shopProductRouter);
+app.use("/api/shop/cart", shopCartRouter);
 
 // app.post("/api/login", (req, res) => {});
 
