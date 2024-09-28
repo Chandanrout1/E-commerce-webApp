@@ -44,7 +44,7 @@ function ShoppingListing() {
   const [sort, setSort] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
   const [openDetailsDialog, setOpenDetailsDialog] = useState(false);
-  const {toast} = useToast()
+  const { toast } = useToast();
 
   function handleSort(value) {
     setSort(value);
@@ -83,8 +83,8 @@ function ShoppingListing() {
       if (data?.payload?.success) {
         dispatch(fetchCartItems(user?.id));
         toast({
-          title : "Product is added to cart"
-        })
+          title: "Product is added to cart",
+        });
       }
     });
   }
@@ -112,8 +112,6 @@ function ShoppingListing() {
   useEffect(() => {
     if (productDetails !== null) setOpenDetailsDialog(true);
   }, [productDetails]);
-
-
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-6 p-4 md:p-6">
