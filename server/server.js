@@ -6,6 +6,8 @@ const authRoutes = require("./routes/auth/auth-routes");
 const adminProductsRouter = require("./routes/admin/products-routers");
 const shopProductRouter = require("./routes/shop/shop-products-router");
 const shopCartRouter = require("./routes/shop/cart-routes");
+const shopAddressRouter = require("./routes/shop/address-routes");
+
 
 //created database connection
 
@@ -38,6 +40,8 @@ app.use("/api/auth", authRoutes);
 app.use("/api/admin/products", adminProductsRouter);
 app.use("/api/shop/products", shopProductRouter);
 app.use("/api/shop/cart", shopCartRouter);
+app.use("/api/shop/address", shopAddressRouter);
+
 
 // app.post("/api/login", (req, res) => {});
 
