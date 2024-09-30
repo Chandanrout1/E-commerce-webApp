@@ -18,6 +18,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { checkAuth } from "./store/auth-slice";
 import { Skeleton } from "@/components/ui/skeleton"
+import ShoppingCheckout from "./pages/shopping-view/checkout";
 
 
 function App() {
@@ -70,7 +71,7 @@ function App() {
         >
           <Route path="home" element={<ShoppingHome />} />
           <Route path="listing" element={<ShoppingListing />} />
-          <Route path="checkout" element={<ShoppingHome />} />
+          <Route path="shop/checkout" element={<ShoppingCheckout />} />
           <Route path="account" element={<ShoppingAccount />} />
         </Route>
         <Route path="/unauth-page" element={<UnauthPage />} />

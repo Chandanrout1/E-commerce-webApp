@@ -3,10 +3,9 @@ import { Button } from "../ui/button";
 import { SheetContent, SheetHeader, SheetTitle } from "../ui/sheet";
 import CartContents from "./cart-contents";
 
-function CartWrapper({ cartItems }) {
-
+function CartWrapper({ cartItems, setOpenCart }) {
   const navigate = useNavigate();
-  
+
   const totalCartAmount =
     cartItems && cartItems.length > 0
       ? cartItems.reduce(
@@ -15,7 +14,8 @@ function CartWrapper({ cartItems }) {
             (currentItem?.salePrice > 0
               ? currentItem?.salePrice
               : currentItem?.price) *
-              currentItem?.quantity, 0
+              currentItem?.quantity,
+          0
         )
       : 0;
 
@@ -35,7 +35,15 @@ function CartWrapper({ cartItems }) {
           <span className="font-bold">${totalCartAmount}</span>
         </div>
       </div>
-      <Button onClick={()=> navigate("shop/checkout")} className="w-full mt-6">Checkout</Button>
+      <Button
+        onClick={() => {
+          navigate("shop/checkout");
+          setOpenCart(false);
+        }}
+        className="w-full mt-6"
+      >
+        Checkout
+      </Button>
     </SheetContent>
   );
 }
